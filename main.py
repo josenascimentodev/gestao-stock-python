@@ -1,5 +1,7 @@
 import sqlite3
 import datetime
+import os
+import subprocess
 
 base = sqlite3.connect("estoque.db")
 cursor = base.cursor()
@@ -19,6 +21,14 @@ CREATE TABLE IF NOT EXISTS PRODUTOS (
                DATA TEXT NOT NULL
                )
 """)
+
+def limpar_terminal():
+    input("\nPressione ENTER para continuar...")
+
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 def pedir_codigo():
     while True:
@@ -220,6 +230,7 @@ def main():
                     data = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     cadastrar_produto(codigo, nome, categoria, quantidade, data)
                     print("Produto e categoria cadastrado!")
+            limpar_terminal()
         elif resposta == 2:
             print("Gerenciar categorias...\n")
             resposta = mostrar_menu(2)
@@ -243,6 +254,7 @@ def main():
                         print(categoria[1])
                 else:
                     print("\nNão há categorias disponiveis")
+            limpar_terminal()
         elif resposta == 3:
             print("consultar estoque...")
             if consultar_estoque():
@@ -251,16 +263,20 @@ def main():
                     print(f"Código: {produto[1]}\nProduto: {produto[2]}\nQuantidade: {produto[3]}\nCategoria: {produto[4]}\nData de cadastro: {produto[5]}")
             else:
                 print("Não há produtos disponiveis")
+            limpar_terminal()
         elif resposta == 1010:
             apagar_estoque()
             print("Limpar estoque...")
             print("\nEstoque apagado com sucesso!")
+            limpar_terminal()
         elif resposta == 1011:
             apagar_categorias()
             print("Limpar categorias...")
             print("\nCategorias apagadas com sucesso!")
+            limpar_terminal()
         elif resposta == 0:
             print("Saindo...")
+            limpar_terminal()
             break
 
 try:
