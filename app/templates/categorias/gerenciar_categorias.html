@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar categorias</title>
+</head>
+<body>
+    <h1>Gerenciar categorias</h1>
+    <form action="{{ url_for('categorias.cadastro' ) }}">
+        <button type="submit">Cadastrar nova categoria</button>
+    </form>
+    <form action="{{ url_for('categorias.categorias' ) }}">
+        <button type="submit">Consultar categorias</button>
+    </form>
+    <form action="{{ url_for('categorias.descadastrar_info' ) }}">
+        <button type="submit">descadastrar categoria</button>
+    </form>
+    <form action="{{ url_for('home.index' ) }}">
+        <button type="submit">Voltar a pagina inicial</button>
+    </form>
+    
+</body>
+</html>

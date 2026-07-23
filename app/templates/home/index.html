@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Gerencidor De Estoque</h1>
+    <form action="{{ url_for('produtos.scan') }}">
+        <button type="submit">
+            Escanear Produto
+        </button>
+    </form>
+    <form action="{{ url_for('produtos.estoque') }}">
+        <button type="submit">
+            Estoque Inteiro
+        </button>
+    </form>
+    <form action="{{ url_for('categorias.gerenciar_categorias' ) }}">
+        <button type="submit">
+            Gerenciar categorias
+        </button>
+    </form>
+    <form action="{{ url_for('produtos.confirmar' ) }}">
+        <button type="submit">Apagar estoque</button>
+    </form>
+    <form action="{{ url_for('categorias.confirmar' ) }}">
+        <button type="submit">Apagar categorias</button>
+    </form>
+</body>
+</html>

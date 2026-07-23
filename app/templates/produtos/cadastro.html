@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <form action="{{ url_for('produtos.infos' ) }}", method="post">
+        <label for="codigo">Digite o codigo do produto</label>
+        <input type="text" name="codigo" id="codigo" value="{{ codigo or '' }}">
+        <br>
+        <label for="nome">Digite o nome do produto</label>
+        <input type="text" name="nome" id="nome" value="{{ nome or '' }}">
+        <br>
+        <label for="categoria">Selecione uma categoria</label>
+        <select name="categoria" id="categoria">
+            {% for categoria in categorias %}
+                <option value="{{ categoria[1] }}">{{ categoria[1] }}</option>
+            {% endfor %}
+            <option value="nova_categoria">[ + Nova categoria ]</option>
+        </select>
+        <br>
+        <label for="quantidade">Digite a quantidade do produto</label>
+        <input type="number" name="quantidade" id="quantidade" value="{{ quantidade or '' }}">
+        <br>
+        <button type="submit">Enviar informações</button>
+    </form>
+{% if erro %}
+    <p>{{ erro }}</p>
+{% endif %}
+    <form action="{{ url_for('home.index' ) }}">
+        <button type="submit">Voltar a pagina inicial</button>
+    </form>
+</body>
+</html>

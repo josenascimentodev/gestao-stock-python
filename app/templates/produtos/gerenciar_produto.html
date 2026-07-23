@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Produto</title>
+</head>
+<body>
+    <h1>Gerenciar Produtos</h1>
+    <form action="{{ url_for('produtos.somar_num' ) }}" method="post">
+        <input type="hidden" name="codigo" value="{{codigo}}">
+        <button type="submit">Somar produto</button>
+    </form>
+    <form action="{{ url_for('produtos.subtrair_num' ) }}" method="post">
+        <input type="hidden" name="codigo" value="{{codigo}}">
+        <button type="submit">Subtrair produto</button>
+    </form>
+    <form action="{{ url_for('produtos.produto' ) }}" method="post">
+        <input type="hidden" name="codigo" value="{{codigo}}">
+        <button type="submit">Consultar produto</button>
+    </form>
+    <form action="{{ url_for('produtos.confirmação_descadastro' ) }}">
+        <input type="hidden" name="codigo" value="{{codigo}}">
+        <button type="submit">Descadastrar produto</button>
+    </form>
+    
+    
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação</title>
+</head>
+<body>
+    <h1>Confirmação</h1>
+    <p>Quer apagar todas as categorias?</p>
+    <form action="{{ url_for('categorias.categorias' ) }}">
+        <button type="submit">Não apagar</button>
+    </form>
+    <form action="{{ url_for('categorias.deletar' ) }}">
+        <button type="submit">Apagar</button>
+    </form>
+    
+</body>
+</html>
